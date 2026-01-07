@@ -351,7 +351,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-950 text-slate-50">
+    <div className="flex min-h-screen w-full flex-col bg-slate-950 text-slate-50">
       {/* Top nav */}
       <header className="sticky top-0 z-10 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
         <div className="flex w-full items-center justify-between px-4 py-6 pr-6">
@@ -378,11 +378,16 @@ function App() {
         </div>
       </header>
 
-      <main className="w-full py-12">
+      <main className="w-full flex-1 py-12">
         <div className="mx-auto w-full max-w-6xl px-6 space-y-20">
           {sections[activeSection]}
         </div>
       </main>
+      <footer className="border-t border-slate-800 bg-slate-950/80 px-6 py-6 text-center shadow-inner shadow-black/20">
+        <p className="text-sm text-slate-400">
+          © {new Date().getFullYear()} Anvi Patel. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
