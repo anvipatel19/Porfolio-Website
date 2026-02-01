@@ -1,5 +1,5 @@
 import { useEffect, useState, type JSX } from 'react';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { projects } from './projects';
 import { Button } from './components/ui/button';
 import { Badge } from './components/ui/badge';
@@ -87,6 +87,17 @@ function App() {
         : 'bg-slate-900/70 text-slate-200 hover:text-white md:bg-transparent',
     ].join(' ');
   };
+
+  const HamburgerIcon = () => (
+    <span className="relative flex h-7 w-7 items-center justify-center text-current">
+      <span className="absolute inset-0 rounded-full border-current/70" />
+      <span className="flex h-4 w-4 flex-col justify-between">
+        <span className="h-[2px] w-full rounded-full bg-current" />
+        <span className="h-[2px] w-full rounded-full bg-current" />
+        <span className="h-[2px] w-full rounded-full bg-current" />
+      </span>
+    </span>
+  );
 
   const sections: Record<SectionKey, JSX.Element> = {
     about: (
@@ -420,7 +431,7 @@ function App() {
             {isMenuOpen ? (
               <X className="h-5 w-5 text-current" strokeWidth={1.8} />
             ) : (
-              <Menu className="h-5 w-5 text-current" strokeWidth={1.8} />
+              <HamburgerIcon />
             )}
           </button>
           <nav
@@ -441,6 +452,11 @@ function App() {
                   type="button"
                   onClick={() => setActiveSection(item.id)}
                   className={navButtonClasses(isActive)}
+                  onMouseDown={(event) => {
+                    if (isDesktop) {
+                      event.preventDefault();
+                    }
+                  }}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.label}
