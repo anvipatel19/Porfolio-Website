@@ -1,5 +1,4 @@
 import { useEffect, useState, type JSX } from 'react';
-import { X } from 'lucide-react';
 import { projects } from './projects';
 import { Button } from './components/ui/button';
 import { Badge } from './components/ui/badge';
@@ -349,7 +348,7 @@ function App() {
             <div className="space-y-6">
               <p className="text-xs uppercase tracking-[0.3em] text-sky-400">Let’s collaborate</p>
 
-              <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl">
                 Open to software engineering roles with a front-end focus
               </h2>
 
@@ -428,11 +427,7 @@ function App() {
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sky-500/60 bg-slate-900/80 text-sky-100 shadow-[0_15px_35px_rgba(2,6,23,0.55)] transition hover:border-sky-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 md:hidden"
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
-            {isMenuOpen ? (
-              <X className="h-5 w-5 text-current" strokeWidth={1.8} />
-            ) : (
-              <HamburgerIcon />
-            )}
+            <HamburgerIcon />
           </button>
           <nav
             id="site-nav"
